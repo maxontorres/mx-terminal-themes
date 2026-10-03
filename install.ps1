@@ -60,7 +60,7 @@ if ($Uninstall) {
 Write-Host "Installing $($meta.id) `"$($meta.codename)`" v$($meta.version)"
 
 if (-not (Get-Command oh-my-posh -ErrorAction SilentlyContinue)) {
-    Write-Warning 'oh-my-posh is not installed. Install it with: winget install JanDeDobbeleer.OhMyPosh --source winget'
+    Write-Warning 'oh-my-posh is not installed. Install it with: winget install JanDeDobbeleer.OhMyPosh'
 }
 $fontKeys = 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts', 'HKCU:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts'
 $hasFont = $fontKeys | Where-Object { Test-Path $_ } |

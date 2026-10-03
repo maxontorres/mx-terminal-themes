@@ -29,8 +29,10 @@ C:\Users\you\code\project    ◈ main ●
 - oh-my-posh: `winget install JanDeDobbeleer.OhMyPosh --source winget`
 - JetBrainsMono Nerd Font: `oh-my-posh font install JetBrainsMono`
 
-Install oh-my-posh with winget rather than from the Microsoft Store. The Store build starts
-about 0.3 s slower on every prompt.
+If the prompt feels slow: the packaged (winget / Microsoft Store) build of oh-my-posh can take
+about 0.3 s to start on every prompt. The standalone `posh-windows-amd64.exe` from the
+[oh-my-posh releases](https://github.com/JanDeDobbeleer/oh-my-posh/releases), saved as
+`oh-my-posh.exe` in a folder on your `PATH`, starts roughly ten times faster.
 
 ## Install
 
