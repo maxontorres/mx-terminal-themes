@@ -1,0 +1,63 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 3,
+  "final_space": true,
+  "console_title_template": "{{ .Env.MX_WT_PROFILE_NAME }} · {{ if .Root }}Admin{{ else }}User{{ end }}",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": false,
+      "segments": [
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "#70BFCF",
+          "template": "{{ .AbsolutePWD }}{{ if hasSuffix \":\" .AbsolutePWD }}\\{{ end }}",
+          "properties": {
+            "style": "full",
+            "home_icon": "~",
+            "folder_separator_icon": "\\"
+          }
+        },
+        {
+          "type": "git",
+          "style": "diamond",
+          "leading_diamond": "   ",
+          "trailing_diamond": "",
+          "foreground": "#E4D9FF",
+          "background": "#221D42",
+          "template": "<#B79CFF>◈</> <b>{{ .HEAD }}</b>{{ if or .Working.Changed .Staging.Changed (gt .Working.Untracked 0) }} <#FFD27D><b>●</b></>{{ end }}",
+          "properties": {
+            "fetch_status": true,
+            "branch_icon": "",
+            "commit_icon": "",
+            "tag_icon": ""
+          }
+        },
+        {
+          "type": "status",
+          "style": "plain",
+          "foreground": "#E18482",
+          "template": "  ✕{{ .Code }}",
+          "properties": {
+            "always_enabled": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#C7D5DA",
+          "template": "❯"
+        }
+      ]
+    }
+  ]
+}

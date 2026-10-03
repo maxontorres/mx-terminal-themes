@@ -1,0 +1,49 @@
+{
+  "profiles": [
+    {
+      "name": "MX://PS-01",
+      "tabTitle": "MX://PS-01",
+      "commandline": "pwsh.exe",
+      "icon": "ms-appx:///ProfileIcons/pwsh.png",
+      "startingDirectory": "%USERPROFILE%",
+      "colorScheme": "MX://PS-01 Violet",
+      "cursorColor": "#6EA8E5",
+      "cursorShape": "bar",
+      "antialiasingMode": "cleartype",
+      "font": {
+        "face": "JetBrainsMono NFM",
+        "size": 12,
+        "weight": "normal"
+      },
+      "opacity": 95,
+      "useAcrylic": false,
+      "padding": "8, 5, 8, 5",
+      "suppressApplicationTitle": false
+    }
+  ],
+  "schemes": [
+    {
+      "name": "MX://PS-01 Violet",
+      "background": "#090B18",
+      "foreground": "#C8D1E0",
+      "cursorColor": "#6EA8E5",
+      "selectionBackground": "#342A52",
+      "black": "#090B18",
+      "red": "#E18482",
+      "green": "#7FAE96",
+      "yellow": "#D2AD68",
+      "blue": "#6EA8E5",
+      "purple": "#AA8CD2",
+      "cyan": "#75D4E2",
+      "white": "#C8D1E0",
+      "brightBlack": "#566475",
+      "brightRed": "#E18482",
+      "brightGreen": "#9BC4AA",
+      "brightYellow": "#E5C785",
+      "brightBlue": "#8FC4F4",
+      "brightPurple": "#C9A7F0",
+      "brightCyan": "#93EAF4",
+      "brightWhite": "#F5F8FC"
+    }
+  ]
+}
