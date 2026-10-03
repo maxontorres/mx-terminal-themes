@@ -7,16 +7,9 @@ Themes for PowerShell 7 in Windows Terminal: a colour scheme, a terminal profile
 |---|---|---|---|
 | `MX://PS-01` | Violet | 1.0.1 | Deep navy background, violet Git pill, minimal two-line prompt |
 
-<!-- screenshot: add docs/mx-ps-01.png and uncomment
 ![MX://PS-01 "Violet"](docs/mx-ps-01.png)
--->
 
 ## What you get
-
-```
-C:\Users\you\code\project    ◈ main ●
-❯
-```
 
 - Full path, then a Git "pill" with the branch; an amber dot appears when there are uncommitted changes.
 - A red `✕<code>` after a command that failed.
