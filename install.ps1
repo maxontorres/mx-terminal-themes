@@ -27,6 +27,7 @@ if (-not (Test-Path -LiteralPath $source)) {
 $meta = Get-Content -Raw (Join-Path $source 'theme.json') | ConvertFrom-Json
 $ompFile = Join-Path $OmpDir "$Theme.omp.json"
 $fragmentFile = Join-Path $FragmentDir "$Theme.json"
+$iconFile = Join-Path $FragmentDir "$Theme.png"
 $blockPattern = '(?ms)^# BEGIN MX://PS\r?\n.*?^# END MX://PS[^\S\r\n]*(\r?\n)?'
 $stamp = Get-Date -Format 'yyyyMMddTHHmmss'
 $utf8 = [System.Text.UTF8Encoding]::new($false)
@@ -44,7 +45,7 @@ function Get-ProfileText {
 
 if ($Uninstall) {
     Write-Host "Removing $($meta.id) `"$($meta.codename)`""
-    foreach ($file in $ompFile, $fragmentFile) {
+    foreach ($file in $ompFile, $fragmentFile, $iconFile) {
         if (Test-Path -LiteralPath $file) { Remove-Item -LiteralPath $file; Write-Host "  removed $file" }
     }
     $text = Get-ProfileText
@@ -75,10 +76,13 @@ Backup-File $ompFile
 Copy-Item -LiteralPath (Join-Path $source "$Theme.omp.json") -Destination $ompFile -Force
 Write-Host "  theme    -> $ompFile"
 
-# Windows Terminal profile + colour scheme
+# Windows Terminal profile + colour scheme (the icon is referenced by its installed path)
 New-Item -ItemType Directory -Force -Path $FragmentDir | Out-Null
-Copy-Item -LiteralPath (Join-Path $source 'windows-terminal-fragment.json') -Destination $fragmentFile -Force
+Copy-Item -LiteralPath (Join-Path $source "$Theme.png") -Destination $iconFile -Force
+$fragment = [IO.File]::ReadAllText((Join-Path $source 'windows-terminal-fragment.json'))
+[IO.File]::WriteAllText($fragmentFile, $fragment.Replace("`"$Theme.png`"", (ConvertTo-Json $iconFile)), $utf8)
 Write-Host "  terminal -> $fragmentFile"
+Write-Host "  icon     -> $iconFile"
 
 # PowerShell profile block (replaces a previous MX://PS block if present)
 $snippet = [IO.File]::ReadAllText((Join-Path $source 'profile-snippet.ps1')).TrimEnd() + [Environment]::NewLine

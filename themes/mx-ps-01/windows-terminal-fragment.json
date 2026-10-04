@@ -4,7 +4,7 @@
       "name": "MX://PS-01",
       "tabTitle": "MX://PS-01",
       "commandline": "pwsh.exe",
-      "icon": "ms-appx:///ProfileIcons/pwsh.png",
+      "icon": "mx-ps-01.png",
       "startingDirectory": "%USERPROFILE%",
       "colorScheme": "MX://PS-01 Violet",
       "cursorColor": "#6EA8E5",
