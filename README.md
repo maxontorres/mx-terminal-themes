@@ -20,6 +20,8 @@ has [separate setup instructions](#mxwsl-crt-nx-crt-for-ubuntu-wsl).
 
 ### MX://WSL-CRT: NX CRT for Ubuntu WSL
 
+![MX://WSL-CRT "NX CRT" in Windows Terminal](docs/mx-wsl-crt.png)
+
 This entry captures my current **MX://WSL-CRT** Windows Terminal profile, its complete
 **NX CRT** ANSI palette, the active Bash Oh My Posh prompt, and the exact `.ico` file
 used by the profile. The larger matching PNG is included for previews. The original
