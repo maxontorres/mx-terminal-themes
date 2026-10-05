@@ -1,0 +1,7 @@
+{
+  "id": "MX://WSL-CRT",
+  "codename": "NX CRT",
+  "version": "1.0.0",
+  "shell": "Bash on Ubuntu (WSL)",
+  "font": "JetBrainsMono Nerd Font Mono"
+}

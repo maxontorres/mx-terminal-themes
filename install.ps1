@@ -25,6 +25,9 @@ if (-not (Test-Path -LiteralPath $source)) {
 }
 
 $meta = Get-Content -Raw (Join-Path $source 'theme.json') | ConvertFrom-Json
+if ($meta.shell -ne 'PowerShell 7') {
+    throw "Theme '$Theme' uses $($meta.shell). For MX://WSL-CRT, run .\install-wsl.ps1 and follow the WSL setup in README.md."
+}
 $ompFile = Join-Path $OmpDir "$Theme.omp.json"
 $fragmentFile = Join-Path $FragmentDir "$Theme.json"
 $iconFile = Join-Path $FragmentDir "$Theme.png"

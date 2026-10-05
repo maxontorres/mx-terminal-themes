@@ -1,0 +1,60 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 4,
+  "final_space": true,
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "session",
+          "style": "plain",
+          "foreground": "#69BFC3",
+          "template": "{{ .UserName }}"
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "#9FECEF",
+          "template": " <#40565D>::</> {{ .Path }}",
+          "options": {
+            "style": "folder"
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "#5D879B",
+          "template": "{{ if .HEAD }} <#40565D>[</>{{ .HEAD }}{{ if .Working.Changed }} ~{{ .Working.String }}{{ end }}{{ if .Staging.Changed }} +{{ .Staging.String }}{{ end }}{{ if gt .Ahead 0 }} ↑{{ .Ahead }}{{ end }}{{ if gt .Behind 0 }} ↓{{ .Behind }}{{ end }}<#40565D>]</>{{ end }}",
+          "options": {
+            "branch_icon": "",
+            "no_commits_icon": "",
+            "commit_icon": "@",
+            "tag_icon": "tag:"
+          }
+        },
+        {
+          "type": "python",
+          "style": "plain",
+          "template": "{{ if .Venv }}[VENV: {{ .Venv }}] {{ end }}",
+          "properties": {
+            "display_mode": "environment"
+          }
+        },
+        {
+          "type": "status",
+          "style": "plain",
+          "foreground": "#DF8A86",
+          "template": " !{{ .Code }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#9FECEF",
+          "template": " ❯"
+        }
+      ]
+    }
+  ]
+}

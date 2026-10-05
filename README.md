@@ -4,18 +4,56 @@
 
 # My terminal themes
 
-These are the themes I use myself when working on Windows.
+These are the themes I use myself when working on Windows and WSL.
 Give your Windows command-line window a coordinated look: a dark background, coloured
 folder and Git information, and a clean place to type commands.
 
-This project is for **PowerShell 7 inside Windows Terminal**. You do not need to know
-Oh My Posh or edit any theme files to use it. Follow the setup steps below in order.
+The main setup guide below is for **PowerShell 7 inside Windows Terminal**. The WSL theme
+has [separate setup instructions](#mxwsl-crt-nx-crt-for-ubuntu-wsl).
 
 | ID | Codename | Version | Look |
 |---|---|---|---|
 | `MX://PS-01` | Violet | 1.0.1 | Deep navy background, violet Git pill, minimal two-line prompt |
+| `MX://WSL-CRT` | NX CRT | 1.0.0 | Near-black CRT background, cyan Bash prompt, muted teal and blue accents |
 
 ![MX://PS-01 "Violet"](docs/mx-ps-01.png)
+
+### MX://WSL-CRT: NX CRT for Ubuntu WSL
+
+This entry captures my current **MX://WSL-CRT** Windows Terminal profile, its complete
+**NX CRT** ANSI palette, the active Bash Oh My Posh prompt, and the exact `.ico` file
+used by the profile. The larger matching PNG is included for previews. The original
+profile uses Ubuntu, JetBrainsMono Nerd Font Mono at size 12, and Terminal's retro
+effect. Its icon is shown below.
+
+<img src="themes/mx-wsl-crt/mx-wsl-crt.png" alt="MX://WSL-CRT icon" width="96">
+
+The Windows Terminal settings and WSL prompt live on different sides of the setup.
+Install both parts:
+
+1. On Windows, open PowerShell in this repository and run `.\install-wsl.ps1`. If your
+   WSL distribution is not named `Ubuntu`, use `.\install-wsl.ps1 -Distribution YourDistro`.
+   This installs a Windows Terminal fragment and the icon without changing your main
+   `settings.json`.
+2. In the WSL Bash shell, clone this repository (or use an existing checkout), then run
+   these commands from its root:
+
+   ```bash
+   git clone https://github.com/maxontorres/mx-terminal-themes.git
+   cd mx-terminal-themes
+   mkdir -p ~/.config/oh-my-posh
+   cp themes/mx-wsl-crt/mx-wsl-crt.omp.json ~/.config/oh-my-posh/
+   cat themes/mx-wsl-crt/bashrc-snippet.sh >> ~/.bashrc
+   ```
+
+   Add the snippet only once. It loads the prompt when Bash opens interactively.
+   [Install Oh My Posh](https://ohmyposh.dev/docs/installation/linux) in WSL first if
+   the `oh-my-posh` command is unavailable.
+3. Restart Windows Terminal and select **MX://WSL-CRT** from the tab menu. Set it as
+   the default under **Settings → Startup** if desired. Install JetBrainsMono Nerd Font
+   on Windows if the selected font is missing.
+
+`install.ps1` and the PowerShell setup guide below apply to **MX://PS-01**.
 
 ## I don't want to read. Give me the instructions!
 
